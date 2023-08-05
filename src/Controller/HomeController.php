@@ -23,9 +23,10 @@ class HomeController extends AbstractController
                             'maxSize' => '1M',
                             'maxSizeMessage' => 'Le fichier {{ name }} fait {{ size }} {{ suffix }} et la limite est de {{ limit }} {{ suffix }}.',
                             'mimeTypes' => [
+                                'image/jpeg',
                                 'application/pdf'
                             ],
-                            'mimeTypesMessage' => 'Veuillez soumettre un pdf.'
+                            'mimeTypesMessage' => 'Veuillez soumettre une image ou un pdf.'
                         ]))
                     ]
                 ])
