@@ -20,8 +20,12 @@ class HomeController extends AbstractController
                 'multiple' => true,
                 'constraints' => [
                         new All(new File([
-                            'maxSize' => 50,
-                            'maxSizeMessage' => 'Votre fichier est trop gros.'
+                            'maxSize' => '1M',
+                            'maxSizeMessage' => 'Le fichier {{ name }} fait {{ size }} {{ suffix }} et la limite est de {{ limit }} {{ suffix }}.',
+                            'mimeTypes' => [
+                                'application/pdf'
+                            ],
+                            'mimeTypesMessage' => 'Veuillez soumettre un pdf.'
                         ]))
                     ]
                 ])
