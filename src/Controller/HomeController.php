@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\File;
 
 class HomeController extends AbstractController
@@ -18,10 +19,10 @@ class HomeController extends AbstractController
             ->add('attachment', FileType::class, [
                 'multiple' => true,
                 'constraints' => [
-                        new File([
-                            'maxSize' => '50k',
+                        new All(new File([
+                            'maxSize' => 50,
                             'maxSizeMessage' => 'Votre fichier est trop gros.'
-                        ])
+                        ]))
                     ]
                 ])
             ->getForm();
